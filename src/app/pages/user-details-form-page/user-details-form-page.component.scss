@@ -1,0 +1,50 @@
+.page-wrapper {
+  max-width: 600px;
+  margin: 16px auto;
+  padding-bottom: 2rem;
+}
+a{
+  text-decoration:underline ;
+}
+form header div{
+font-size: 90%;
+    font-family: Assistant;
+  }
+.header-wrapper{
+  max-width: 600px;
+  margin: 16px auto;
+  padding-bottom: 2rem;
+}
+.other-languages-list{
+// background-color: #02286d;
+    text-align: center;
+    width: 150px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.other-languages-list-cnt{
+  max-width: 600px;
+  font-size: 90%;
+    font-family: Assistant;
+}
+// .other-language-cnt{
+  // padding: 10px;
+  // border: 1px solid #02286d;
+  // background: #02286d;
+  // color: white;
+// }
+@media screen and (max-width: 600px) {
+  .page-wrapper {
+    margin: 16px;
+  }
+  .header-wrapper{
+    margin: 16px;
+  }
+}
+.title-text{
+  margin-bottom: 5px;
+}
+.formCard{
+  max-width: 700px;
+}

@@ -1,0 +1,23 @@
+.languagesSelect {
+    background-color: #02286d;
+    text-align: center;
+    width: 150px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: grid;
+    font-size: 90%;
+    font-family: Assistant;
+
+    .mat-button {
+        color: #ffffff !important;
+        text-decoration: none!important;
+        border: 1px solid white;  
+        border-radius:0px ;  
+        &.active {
+            opacity: 1;
+            font-weight: 600;
+            content-visibility: hidden;
+        }
+    }
+}

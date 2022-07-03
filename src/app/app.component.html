@@ -1,0 +1,17 @@
+<uoh-accessibility [dir]="direction" [lang]="lang">
+  <uoh-spinner></uoh-spinner>
+  <ng-container *ngIf="isStudent(); else guestHeader">
+    <!-- <uoh-header [header]="'APP_DONATION' | translate" [user]="user" (logOut)="logout()" 
+    [logoLinkUrl]="'https://donations.haifa.ac.il/he/landing-1/'" 
+   ></uoh-header> -->
+  </ng-container>
+  <ng-template #guestHeader>
+    <uoh-header [header]="'APP_DONATION' | translate"   [logoLinkUrl]="'https://donations.haifa.ac.il/he/landing-1/'" ></uoh-header>
+  </ng-template>
+  <!-- <div class="fake-header"> -->
+    <!-- <app-languages-select class="langSelect"></app-languages-select> -->
+  <!-- </div> -->
+  <uoh-back-to-top></uoh-back-to-top>
+  <router-outlet></router-outlet>
+  <uoh-footer [version]="version"></uoh-footer>
+</uoh-accessibility>

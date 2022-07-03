@@ -1,0 +1,23 @@
+.contact-information-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 0.5rem;
+    }
+}
+.mat-checkbox-label{
+    max-width: 300px;
+}
+.buttonAmount{
+    margin: 10px;
+}
+.buttonAmount:hover{
+    background-color: lightgoldenrodyellow;}
+.selected{
+    margin: 10px;
+    background-color: lightblue;
+}

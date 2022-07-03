@@ -1,0 +1,5 @@
+<div class="languagesSelect">
+    <button mat-button *ngFor="let lang of languages" (click)="changeLang(lang)" [class.active]="currentLang === lang">
+        {{buildKey(lang) | translate}}
+    </button>
+</div>

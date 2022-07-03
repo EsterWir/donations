@@ -1,0 +1,5 @@
+<div *ngIf="message !== null" class="failed-message uoh-error">
+  <mat-icon>error_outline</mat-icon>
+  <span>{{ message | translate }}</span>
+  <span *ngIf="!!subMessage">{{ subMessage | translate }}</span>
+</div>

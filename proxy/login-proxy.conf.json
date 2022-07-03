@@ -1,0 +1,25 @@
+{
+  "/paymentService/*": {
+    "target": "http://epdev75.haifa.ac.il:51000/paymentService/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/paymentService": ""
+    }
+  },
+  "/api/*": {
+    "target": "http://epdev75.haifa.ac.il:51000/donations/api/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/login": {
+    "target": "http://localhost:3000/login",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

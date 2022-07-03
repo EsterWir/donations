@@ -1,0 +1,29 @@
+{
+  "/paymentService/*": {
+    "target": "https://applicantsdevfi.haifa.ac.il/paymentService/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/paymentService": ""
+    }
+  },
+  "/api/*": {
+    "target": "https://applicantsdevfi.haifa.ac.il/donations/api/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/student/api/*": {
+    "target": "https://applicantsdevfi.haifa.ac.il/donations/student/api/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/student/api": ""
+    }
+  }
+}

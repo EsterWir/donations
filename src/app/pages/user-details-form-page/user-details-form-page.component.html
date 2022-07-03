@@ -1,0 +1,58 @@
+<div class="header-wrapper">
+  <div class="other-languages-list-cnt">
+    <app-languages-select></app-languages-select>
+  </div>
+  <div style="max-width:580px;font-size:18px">
+    <h2 class="title-text">{{'TITLE_TEXT_FORM_DONATE'| translate}}</h2>
+    <p class="MsoNormal" style="margin-bottom:9.0pt;line-height:normal;unicode-bidi:embed">
+      <span style="font-size:18px;">
+        {{'FIRST_TEXT_FORM_DONATE'| translate}}
+        <br *ngIf="language=='he'">
+        <span style="color:red">{{'ASTERISK_TEXT_FORM_DONATE'| translate}}</span>
+        {{'SECOND_TEXT_FORM_DONATE'| translate}}
+      </span>
+        <a *ngIf="language=='he'" href="https://ifriends.haifa.ac.il/טופס-תרומה/" style="width:350px; font-size:18px;">
+          אגודת הידידים הישראלית</a>
+    </p>
+    <p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:normal;unicode-bidi:embed">
+      <span style="font-size:18px;">
+        {{'THIRD_TEXT_FORM_DONATE'| translate}}
+      </span>
+    </p>
+    <div *ngIf="language!='he'" class="links-flags-cnt" >
+      <div style="margin-top:15px; display:flex; flex-direction:row; align-items:center;">
+        <a href="https://www.asuh.org/support-university-of-haifa/" style="width:350px; font-size:18px;">
+        {{'AMERICA_FRIENDS'|translate}}</a>
+        <img style="margin-left:20px;" height="60px" src="https://hodaot.haifa.ac.il/Pay/img/usa_flag.jpg">
+      </div>
+      <div *ngIf="language=='en'">
+        {{'AMERICA_NOTE1'|translate}}
+        <br>
+        {{'AMERICA_NOTE2'|translate}}
+      </div>
+      <div style="margin-top:15px; display:flex; flex-direction:row; align-items:center;">
+        <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=cfohu&id=1"
+          style="width:350px; font-size:18px;">{{'CANADION_FRIENDS'|translate}}</a>
+        <img style="margin-left:20px;" src="https://hodaot.haifa.ac.il/Pay/img/Canada_flag.jpg" height="60px">
+      </div>
+      <div style="margin-top:15px; display:flex; flex-direction:row; align-items:center;">
+        <a href="https://www.haifa-univ.org.uk/" style="width:350px; font-size:18px;">
+          {{"UK_FRIENDS"|translate}}</a>
+        <img style="margin-left:20px;" src="https://hodaot.haifa.ac.il/Pay/img/UK_Flag.jpg" height="60px">
+      </div>
+    </div>
+    <br>
+    <span style="font-size:18px;">
+      {{'CELL_TEXT_FORM_DONATE'| translate}}
+    </span>
+    <br>
+    <span style="font-size:18px;">{{'EMAIL_TEXT_FORM_DONATE'|translate}}
+      <a href="mailto:loded@univ.haifa.ac.il">loded@univ.haifa.ac.il</a>.</span>
+  </div>
+</div>
+
+<mat-card class="formCard" uohCard="small" uohCardCollapse="false">
+  <app-error select="PAYMENT"></app-error>
+  <app-error select="USER_INFO"></app-error>
+  <app-user-details-form (onSubmit)="goToPayment($event)"></app-user-details-form>
+</mat-card>

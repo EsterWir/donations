@@ -1,0 +1,61 @@
+<div class="uoh-pay-success-wrapper" role="rowgroup">
+    <div class="uoh-pay-success-row uoh-success" role="row">{{'PAY_SUCCESS_MESSAGE' | translate}}</div>
+    <div class="uoh-pay-success-row" role="row">
+      <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_AMOUNT' | translate}}: </span>
+      <span class="uoh-pay-success-value">
+        {{ payment.sum | currency: payment.currency:'symbol':'1.2-2' }}
+      </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="uoh-pay-success-row" role="row">
+      <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_CONFIRMATION_NUMBER' | translate}}: </span>
+      <span class="uoh-pay-success-value">
+        {{ payment.confirmationCode }}
+      </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="uoh-pay-success-row" role="row">
+      <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_DATE' | translate}}: </span>
+      <span class="uoh-pay-success-value">
+        {{ payment.receivedAt | date: 'dd/MM/yyyy HH:mm:ss' }}
+      </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="uoh-pay-success-row" role="row">
+      <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_LAST_FOUR_NUMBERS' | translate}}: </span>
+      <span class="uoh-pay-success-value">
+        {{ payment.cardNumber }}
+      </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="uoh-pay-success-row" role="row">
+      <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_METHOD' | translate}}: </span>
+      <span class="uoh-pay-success-value">
+        {{ paymentMethodMsgKey | translate }}
+      </span>
+    </div>
+  
+    <ng-container *ngIf="payment.installments">
+      <mat-divider></mat-divider>
+      <div *ngIf="payment.installments.quantity" class="uoh-pay-success-row" role="row">
+        <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_NUMBER_OF_PAYMENTS' | translate}}: </span>
+        <span class="uoh-pay-success-value">
+          {{ payment.installments.quantity }}
+        </span>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="payment.installments.firstSum" class="uoh-pay-success-row" role="row">
+        <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_FIRST_PAYMENT' | translate}}: </span>
+        <span class="uoh-pay-success-value">
+          {{ payment.installments.firstSum | currency: payment.currency:true:'1.2-2' }}
+        </span>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="payment.installments.sum" class="uoh-pay-success-row" role="row">
+        <span class="uoh-pay-success-label"> {{'PAY_SUCCESS_FURTHER_PAYMENTS' | translate}}: </span>
+        <span class="uoh-pay-success-value">
+          {{ payment.installments.sum | currency: payment.currency:true:'1.2-2' }}
+        </span>
+      </div>
+    </ng-container>
+  </div>

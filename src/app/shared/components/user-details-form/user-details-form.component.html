@@ -1,0 +1,101 @@
+<form class="contact-information-form" [formGroup]="formGroup" (ngSubmit)="handleSubmit()">
+  <h1>{{'CONTACT_INFORMATION_FORM_DONATE' | translate}}</h1>
+  <!-- title -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'TITLE_FIELD_LABEL' | translate}}</mat-label>
+    <mat-select matNativeControl formControlName="title" placeholder="{{'TITLE_FIELD_LABEL' | translate}}"
+      aria-label="{{'TITLE_FIELD_LABEL' | translate}}">
+      <mat-option value="Please Select">{{'PLEASE_SELECT_OPTION'|translate}}</mat-option>
+      <mat-option *ngFor="let title of listTitles" [value]="title.key">{{title.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- fullName -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'FULL_NAME_FIELD_LABEL' | translate}}</mat-label>
+    <input matInput required formControlName="fullName">
+    <mat-error *ngIf="hasError(fullNameControl)">{{'ONLY_CHARACTERS' | translate}}</mat-error>
+  </mat-form-field>
+  <!-- address -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'ADDRESS_FIELD_LABEL' | translate}}</mat-label>
+    <input matInput formControlName="address">
+  </mat-form-field>
+  <!-- country -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'COUNTRY_FIELD_LABEL' | translate}}</mat-label>
+    <input required matInput formControlName="country">
+  </mat-form-field>
+  <!-- email -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'EMAIL_FIELD_LABEL' | translate}}</mat-label>
+    <input matInput required formControlName="email">
+    <mat-error *ngIf="hasError(emailControl)">{{'INVALID_EMAIL_ADDRESS' | translate}}</mat-error>
+  </mat-form-field>
+  <!-- phone -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'PHONE_FIELD_LABEL' | translate}}</mat-label>
+    <input matInput required formControlName="phone">
+    <mat-error *ngIf="hasError(phoneControl)">{{'INVALID_PHONE_NUMBER' | translate}}</mat-error>
+  </mat-form-field>
+  <h1>{{'DONATION_INFORMATION_FORM_DONATE' | translate}}</h1>
+  <!-- giftAmount -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'GiFT_AMOUNT_FIELD_LABEL' | translate}}</mat-label>
+    <div class="example-button-row" *ngIf="language!='he'">
+      <button [ngClass]="amount == 1000 ? 'selected' : 'buttonAmount'" type='button' (click)="amount = 1000;ifShowOtherAmountFeild=false;" mat-raised-button>1000</button>
+      <button [ngClass]="amount == 100 ? 'selected' : 'buttonAmount'" type='button' (click)="amount = 100;ifShowOtherAmountFeild=false" mat-raised-button>100</button>
+      <button [ngClass]="amount == 50 ? 'selected' : 'buttonAmount'" type='button' (click)="amount = 50;ifShowOtherAmountFeild=false" mat-raised-button>50</button>
+      <button [ngClass]="ifShowOtherAmountFeild==true ? 'selected' : 'buttonAmount'" type='button' (click)="amount = 0;ifShowOtherAmountFeild=true" mat-raised-button>{{"OTHER_AMOUNT"|translate}}</button>
+      <br>
+      <mat-form-field *ngIf="ifShowOtherAmountFeild">
+        <mat-label>{{'OTHER_AMOUNT' | translate}}</mat-label>
+        <input required type="number" formControlName="giftAmount" matInput>
+      </mat-form-field>
+    </div>
+    <input *ngIf="language=='he'" matInput required formControlName="giftAmount">
+    <input hidden matInput>
+  </mat-form-field>
+  <!-- currency -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'CURRENCY_FIELD_LABEL' | translate}}</mat-label>
+    <mat-select required matNativeControl formControlName="currency"
+      placeholder="{{'CURRENCY_FIELD_LABEL' | translate}}" aria-label="{{'CURRENCY_FIELD_LABEL' | translate}}">
+      <mat-option *ngFor="let currency of coinsList" [value]="currency.key">{{currency.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- designate -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'TITLE_FIELD_LABEL' | translate}}</mat-label>
+    <mat-select matNativeControl formControlName="title" placeholder="{{'TITLE_FIELD_LABEL' | translate}}"
+      aria-label="{{'TITLE_FIELD_LABEL' | translate}}">
+      <mat-option value="Please Select">{{'PLEASE_SELECT_OPTION'|translate}}</mat-option>
+      <mat-option *ngFor="let title of listTitles" [value]="title.key">{{title.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- details -->
+  <mat-form-field appearance="fill">
+    <mat-label>{{'DONATION_DETAILS_FIELD_LABLE' | translate}}</mat-label>
+    <input maxlength="255" matInput formControlName="donationDetails" type="text">
+  </mat-form-field>
+  <!-- anonymouns -->
+  <mat-checkbox formControlName="anonymouns" class="example-margin" [labelPosition]="labelPosition">
+    {{'ANONYMOUNS_FIELD_LABEL'|translate}}</mat-checkbox>
+    <!-- nameOf -->
+    <mat-form-field *ngIf="language=='he'" appearance="fill">
+      <mat-label>{{'NAME_OF_FIELD_LABLE' | translate}}</mat-label>
+      <input maxlength="255" matInput formControlName="nameOf" type="text">
+    </mat-form-field>
+    <!-- consest -->
+  <mat-checkbox *ngIf="language!='he'" class="example-margin" formControlName="consent">{{'CONSEST_FIELD_LABEL'|translate}}</mat-checkbox>
+  <!-- notRobot -->
+  <ng-container >
+    <re-captcha style="margin-top:25px" (resolved)="reCaptchaResolved($event)" [siteKey]="reCaptchaSiteKey" formControlName="recaptchaReactive">
+    </re-captcha>
+  </ng-container>
+  <!-- submit -->
+  <div class="actions">
+    <button mat-raised-button type="submit" [color]="'primary'" [style.width]="'auto'" [disabled]="!formGroup.valid">
+      <span>{{'SUBMIT_BUTTON' | translate}}</span>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+.success-message {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0 1rem;
+  margin: 0 -0.5rem;
+
+  mat-icon {
+    font-size: 42px;
+    width: 42px;
+    height: auto;
+    margin: 0 0.5rem;
+  }
+
+  > span {
+    margin: 0 0.5rem;
+  }
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export function phoneNumberValidator() {\n  return control => {\n    if (!control.value || /^[-+\\d ]{8,30}$/.test(control.value)) {\n      return null;\n    }\n\n    return {\n      phoneInvalid: true\n    };\n  };\n}","map":null,"metadata":{},"sourceType":"module"}
